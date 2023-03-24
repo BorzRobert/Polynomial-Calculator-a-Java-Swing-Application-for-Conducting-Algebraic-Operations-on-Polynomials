@@ -10,14 +10,10 @@ import java.util.regex.Pattern;
 public class Operations {
 
     public boolean patternMatch(String input) {
-        String regex = "^[-+]?\\d*\\.?\\d*x\\^\\d+([-+]?\\d*\\.?\\d*x\\^\\d+)*([-+]?\\d*\\.?\\d+)?$";
+        String regex = "^[-+]?\\d*\\.?\\d*x\\^\\d+([-+]?\\d*\\.?\\d*x\\^\\d+)*([-+]?\\d*\\.?\\d+|[-+]?[0-9]+)?$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(input);
-        if (matcher.matches()) {
-            return true;
-        } else {
-            return false;
-        }
+        return matcher.matches();
     }
 
     public Polynomial<Integer, Monomial> stringToPolynomial(String textBox, Polynomial<Integer, Monomial> polynomial) {

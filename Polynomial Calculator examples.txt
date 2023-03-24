@@ -1,0 +1,10 @@
+5.12x^3+2x^2-36
+1.73x^2+2x^1+5
+Resul Add 5.12*x^3+3.73*x^2+2*x^1-31
+Result Subtract 5.12*x^3+0.27*x^2-2*x^1-41
+Resul Derive 15.36*x^2+4*x^1
+Result Integrate 1.28*x^4+0.66*x^3-36*x^1
+Multiply result:8.8576x^5+13.7x^4+29.6x^3-52.28x^2-72.0x-180.0
+
+x^3-2x^2+6x^1-5
+x^2-1
