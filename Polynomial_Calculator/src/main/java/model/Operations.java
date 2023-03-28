@@ -61,7 +61,7 @@ public class Operations {
         for (Map.Entry<Integer, Monomial> element : polynomial.polynomialMap.entrySet()
         ) {
             if (element.getValue().getCoefficient() != 0) {
-                if (element.getValue().getPower() != highestDegree(polynomial).power) {
+                if (element.getValue().getPower() != highestDegree(polynomial).getPower()) {
                     if (element.getValue().getCoefficient() >= 0) {
                         if (element.getValue().getPower() == 0)
                             polynomialString = polynomialString + "+" + element.getValue().getCoefficient();
@@ -192,29 +192,29 @@ public class Operations {
         TreeMap<Integer, Monomial> myMap1 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         Polynomial<Integer, Monomial> result = new Polynomial<>(myMap1);
 
-        while (highestDegree(polynomial1).power >= polynomial2.polynomialMap.firstEntry().getValue().getPower()) {
+        while (highestDegree(polynomial1).getPower() >= polynomial2.polynomialMap.firstEntry().getValue().getPower()) {
             Monomial myMonomial = new Monomial(0, 0);
-            myMonomial.setPower(highestDegree(polynomial1).power - polynomial2.polynomialMap.firstEntry().getValue().getPower());
-            myMonomial.setCoefficient(highestDegree(polynomial1).coefficient / polynomial2.polynomialMap.firstEntry().getValue().getCoefficient());
-            quotient.polynomialMap.put(highestDegree(polynomial1).power - polynomial2.polynomialMap.firstEntry().getValue().getPower(), myMonomial);
+            myMonomial.setPower(highestDegree(polynomial1).getPower() - polynomial2.polynomialMap.firstEntry().getValue().getPower());
+            myMonomial.setCoefficient(highestDegree(polynomial1).getCoefficient() / polynomial2.polynomialMap.firstEntry().getValue().getCoefficient());
+            quotient.polynomialMap.put(highestDegree(polynomial1).getPower() - polynomial2.polynomialMap.firstEntry().getValue().getPower(), myMonomial);
             result.polynomialMap.clear();
-            result.polynomialMap.put(highestDegree(polynomial1).power - polynomial2.polynomialMap.firstEntry().getValue().getPower(), myMonomial);
+            result.polynomialMap.put(highestDegree(polynomial1).getPower() - polynomial2.polynomialMap.firstEntry().getValue().getPower(), myMonomial);
             polynomial1 = subtractPolynomials(polynomial1, multiplyPolynomials(polynomial2, result));
         }
         return "Q: " + polynomialToString(quotient) + " ;" + " R: " + polynomialToString(polynomial1);
     }
 
-    private TwoInts highestDegree(Polynomial<Integer, Monomial> polynomial1) {
-        TwoInts record = new TwoInts(0, 0);
+    private Monomial highestDegree(Polynomial<Integer, Monomial> polynomial1) {
+        Monomial record = new Monomial(0, 0);
 
         for (Map.Entry<Integer, Monomial> element : polynomial1.polynomialMap.entrySet()
         ) {
             if (element.getValue().getCoefficient() != 0) {
-                record.coefficient = element.getValue().getCoefficient();
-                record.power = element.getValue().getPower();
+                record.setCoefficient(element.getValue().getCoefficient());
+                record.setPower(element.getValue().getPower());
                 return record;
             }
         }
-        return new TwoInts(-1, -1);
+        return new Monomial(-1, -1);
     }
 }

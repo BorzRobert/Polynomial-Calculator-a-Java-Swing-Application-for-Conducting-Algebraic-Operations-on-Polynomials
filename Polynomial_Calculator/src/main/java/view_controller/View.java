@@ -145,11 +145,18 @@ public class View extends JDialog {
                 if (checkBothInputs(firstPolynomialTextField, secondPolynomialTextField)) {
                     if (operation.patternMatch(firstPolynomialTextField.getText()) && operation.patternMatch(secondPolynomialTextField.getText())) {
                         initPolynomials();
-                        if (firtstPolynomial.polynomialMap.firstEntry().getValue().getPower() < secondtPolynomial.polynomialMap.firstEntry().getValue().getPower()) {
-                            showMessage("The polynomial with the highest degree must be inserted first!");
+                        if(operation.polynomialToString(secondtPolynomial)==""){
+                            showMessage("Division by zero!");
                             refresh();
+                        }else
+                        {
+                            if (firtstPolynomial.polynomialMap.firstEntry().getValue().getPower() < secondtPolynomial.polynomialMap.firstEntry().getValue().getPower()) {
+                                showMessage("The polynomial with the highest degree must be inserted first!");
+                                refresh();
+                            }
+                            else
+                            resultTextField.setText(operation.dividePolynomials(firtstPolynomial, secondtPolynomial));
                         }
-                        resultTextField.setText(operation.dividePolynomials(firtstPolynomial, secondtPolynomial));
                     } else {
                         showMessage("The polynomials don't respect the required format!");
                         refresh();
@@ -201,7 +208,8 @@ public class View extends JDialog {
                         "2.The syntax for a monomial should be the following(+/-(coefficient)x^power)\n" +
                         "   The first term of the polynomial doesn't need to have the sign + if it is positive\n"+
                         "    For power=0, the monomial will consist only of the real value(+/-coefficient)\n" +
-                        "3.If the first term of the polynomial is negative, its coefficient must be present, even if it is 1\n");
+                        "3.If the first term of the polynomial is negative, its coefficient must be present, even if it is 1\n"+
+                        "4.If the polynomial consists of only a constant value, it must be inserted as follows: coefficientx^0");
             }
         });
         //CALCULATOR KEYBOARD BUTTONS

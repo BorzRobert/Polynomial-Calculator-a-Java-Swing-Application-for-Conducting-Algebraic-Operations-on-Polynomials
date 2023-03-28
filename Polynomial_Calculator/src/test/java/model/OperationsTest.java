@@ -8,10 +8,9 @@ import java.util.TreeMap;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OperationsTest {
-
+    private Operations op = new Operations();
     @Test
     void testAddition() {
-        Operations op = new Operations();
         TreeMap<Integer, Monomial> myMap1 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         TreeMap<Integer, Monomial> myMap2 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         Polynomial<Integer, Monomial> firstPolynomial, secondPolynomial;
@@ -24,7 +23,6 @@ class OperationsTest {
 
     @Test
     void testSubtraction() {
-        Operations op = new Operations();
         TreeMap<Integer, Monomial> myMap1 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         TreeMap<Integer, Monomial> myMap2 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         Polynomial<Integer, Monomial> firstPolynomial, secondPolynomial;
@@ -37,7 +35,6 @@ class OperationsTest {
 
     @Test
     void testMultiplication() {
-        Operations op = new Operations();
         TreeMap<Integer, Monomial> myMap1 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         TreeMap<Integer, Monomial> myMap2 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         Polynomial<Integer, Monomial> firstPolynomial, secondPolynomial;
@@ -50,7 +47,6 @@ class OperationsTest {
 
     @Test
     void testMultiplication1() {
-        Operations op = new Operations();
         TreeMap<Integer, Monomial> myMap1 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         TreeMap<Integer, Monomial> myMap2 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         Polynomial<Integer, Monomial> firstPolynomial, secondPolynomial;
@@ -63,7 +59,6 @@ class OperationsTest {
 
     @Test
     void testDerive() {
-        Operations op = new Operations();
         TreeMap<Integer, Monomial> myMap1 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         Polynomial<Integer, Monomial> firstPolynomial;
         firstPolynomial = new Polynomial<>(myMap1);
@@ -74,7 +69,6 @@ class OperationsTest {
 
     @Test
     void testIntegrate() {
-        Operations op = new Operations();
         TreeMap<Integer, Monomial> myMap1 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         Polynomial<Integer, Monomial> firstPolynomial;
         firstPolynomial = new Polynomial<>(myMap1);
@@ -85,7 +79,6 @@ class OperationsTest {
 
     @Test
     void testDivision() {
-        Operations op = new Operations();
         TreeMap<Integer, Monomial> myMap1 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         TreeMap<Integer, Monomial> myMap2 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         Polynomial<Integer, Monomial> firstPolynomial, secondPolynomial;
@@ -98,7 +91,6 @@ class OperationsTest {
 
     @Test
     void testDivision1() {
-        Operations op = new Operations();
         TreeMap<Integer, Monomial> myMap1 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         TreeMap<Integer, Monomial> myMap2 = new TreeMap<Integer, Monomial>(Collections.reverseOrder());
         Polynomial<Integer, Monomial> firstPolynomial, secondPolynomial;
